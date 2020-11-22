@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body onload="clock()">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand text-light" href="#">Clock</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link text-light" href="#" onclick="displayHome()">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#" onclick="displayCountdown()">Countdown</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#" onclick="displayStopwatch()">Stopwatch</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#" onclick="displayEvent()">Events</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="home">
+      <h1 class="display-1 clock"></h1>
+      <h3 class="display-4 day"></h3>
+    </div>
+    <div class="countdown">
+        <div class="">
+            <div class="input-container">
+                <label for="hour">Hour : </label>
+                <label for="minute">Minute : </label>
+                <label for="second">Second : </label>
+                <br>
+                <input type="number" name="hour" id="hour" min="0" class="form_control" placeholder="0">
+                <input type="number" name="minute" id="minute" min="0" class="form_control" placeholder="0">
+                <input type="number" name="second" id="second" min="0" class="form_control" placeholder="0">
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" onclick="time()"><i class="fas fa-play"></i> Start</button>
+            <button type="button" class="btn btn-danger btn-lg stopwatch__btn" onclick="location.reload()">End</button>
+            <br>
+            <div class="countdown__result">
+                <span class="result-hour">00</span>
+                <span> : </span>
+                <span class="result-minute">00</span>
+                <span> : </span>
+                <span class="result-second">00</span>
+                <br>
+                <span class="result-text"></span>
+                <br>
+                <audio>
+                    <source src="Victory & Lobby Redux.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </div>
+    <div class="stopwatch__container">
+        <div class="stopwatch">
+            <span class="stopwatch__hour">00</span>
+            <span class="fc"> : </span>
+            <span class="stopwatch__minute">00</span>
+            <span class="fc"> : </span>
+            <span class="stopwatch__second">00</span>
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary btn-lg stopwatch__btn" onclick="starttimer()">Start</button>
+        <button type="button" class="btn btn-danger btn-lg stopwatch__btn" onclick="stoptimer()">Stop</button>
+        <button type="button" class="btn btn-danger btn-lg stopwatch__btn" onclick="end()">End</button>
+    </div>
+    <div class="event__timer__container">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" id="event__name" placeholder="Event name" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Note</span>
+        </div>
+        <textarea class="form-control" id="des" aria-label="With textarea"></textarea>
+        <input type="date" name="event__date" id="event__date">
+      </div>
+      <br>
+        <button class="btn btn-primary btn-lg" onclick="event__timer()">Save</button>
+        <div class="event__result__container">
+            <p class="event__result__name"></p>
+            <p class="event__result__day"></p>
+            <p class="event__des"></p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
